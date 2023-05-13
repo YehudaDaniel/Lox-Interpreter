@@ -1,3 +1,8 @@
+package lox;
+
+import lox.Scanner;
+import lox.Token;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -5,7 +10,6 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Scanner;
 
 class Lox {
     static boolean hadError = false;
@@ -43,7 +47,6 @@ class Lox {
         }
     }
 
-    //TODO: implement a Token class and scanTokens() function
     private static void run(String source){
         Scanner scanner = new Scanner(source);
         List<Token> tokens = scanner.scanTokens();
@@ -53,7 +56,7 @@ class Lox {
         }
     }
     //given a line integer and a string message, will return a report about an occcurred error
-    //TODO: implement a better error message that givens the exact column as well
+    //TODO: implement a better error message that givens the exact column as well (using the offset)
     static void error(int offset, String message){
         report(offset, "", message);
     }
